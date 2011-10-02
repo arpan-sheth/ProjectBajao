@@ -1,0 +1,378 @@
+<!doctype html> 
+<html> 
+    <head> 
+        <title>Player</title> 
+
+        <style type="text/css">
+            body {
+                min-width: 940px;
+            }
+           .player {
+                background: #fff;
+                padding-left:1em;
+                margin:0 auto; 
+            }
+            
+            .ui-progressbar-value { 
+                background-image: url(http://jqueryui.com/demos/progressbar/images/pbar-ani.gif);
+             }
+            #progressbar {
+                width: 41em;
+                height:0.5em;
+                float:left;
+                margin-top:0.5em;
+            }
+            
+     /*       #slider-vertical {
+                float:left;
+                height:4em;
+                width:2px;
+                margin-bottom:2em;
+            }            
+
+            #slider-vertical a{
+                height:0.5em;
+                width:1px;
+                padding-bottom:0em;
+            }            
+       */     
+            #slider-range-min {
+                height:0.5em;
+                width:5em;
+                float:left;
+                margin:0.5em 0.3em 0.5em;
+                padding-left: 0.2em;
+                
+            }
+            
+            #slider-range-min a{
+                height:0.5em;
+                width:1px;
+                padding-bottom:0em;
+            }
+            
+            .ui-state-default {
+                width: 1em;
+                padding: 0.2em;
+                float: left;
+                margin:2px;
+            }
+            .controls {
+            }
+            .playlist {
+                height:10em;
+            }
+            .scroll-pane { 
+                overflow: auto; 
+                width: 99%; 
+                float:left; 
+             }
+	        .scroll-content { 
+	           width: 2440px; 
+	           float: left; 
+	         }
+	        .scroll-content-item {
+	            width: 75px; 
+	            height: 75px; 
+	            float: left; 
+	            margin: 10px; 
+	            text-align: center; 
+	         }
+	        * html .scroll-content-item { 
+	           display: inline; 
+	         } /* IE6 float double margin bug */
+	        .scroll-bar-wrap { 
+	           clear: left; 
+	           padding: 0 4px 0 2px; 
+	           margin: 0 -1px -1px -1px; 
+	          }
+	       
+	        .scroll-bar-wrap .ui-slider { 
+	           background: none; 
+	           border:0; 
+	           height: 1.2em; 
+	           margin: 0 auto;  
+	        }
+	        .scroll-bar-wrap .ui-handle-helper-parent { 
+	           position: relative; 
+	           width: 100%; 
+	           height: 100%; 
+	           margin: 0 auto; 
+	         }
+	        .scroll-bar-wrap .ui-slider-handle { 
+	           top:.2em; 
+	           height: 1.2em; 
+	         }
+	        .scroll-bar-wrap .ui-slider-handle .ui-icon {
+	           margin: -12px auto 0; 
+	           position: relative; 
+	           top: 50%; 
+	        }
+	        
+	        .scroll-bar-wrap .ui-slider-handle .ui-icon:hover{
+               margin: -12px auto 0; 
+               position: relative; 
+               top: 50%; 
+            }
+            
+            #feedback { 
+               font-size: 1.4em; 
+            }
+            #selectable .ui-selecting { 
+                background: #FECA40; 
+            }
+            #selectable .ui-selected { 
+                background: #F39814; 
+                color: white; 
+            }
+            #selectable { 
+                list-style-type: none; 
+                margin: 0; 
+                padding: 0; 
+            }
+            #selectable li { 
+                margin: 3px; 
+                padding: 1px; 
+                width: 99%; 
+                font-size: 4em; 
+                text-align: center; 
+            }
+            .results {
+                margin: 0 auto;
+                width:  800px;
+                overflow: auto;
+                padding-bottom: 100px;
+                padding-top: 7em;
+            }
+            .header {
+                height: 6em;
+                width:99%;
+                position: fixed;
+                background: #fff;
+            }
+            .result {
+                font-size: 0.2em;
+                text-align:left;
+                margin: 0px auto;
+                
+            }
+            .art {
+                float:left;
+            }
+            .art img {
+	            height: 80px;
+	            width : 80px;
+	            margin:0.5em 5em 0 4em;
+            }
+            
+            .title, .album , .artist, .year{
+               padding: 5px;
+            }
+            
+            .data {
+                padding-left: 30px;
+            }
+            
+            .next {
+                float:right;
+            }
+            .previous, .next {
+                border: 1px solid;
+            }
+            .previous {
+                float:left
+            }
+            
+            .paginate {
+                padding: 8em;
+            }
+            
+            .submit_button_search {
+                border: 1px solid;
+            }
+            
+            .search_container {
+                padding-left:17em;
+                padding-top:2em;
+            }
+            
+            .logo_image {
+                height:100px;
+                padding-left:2em;
+                width:100px;
+                float:left
+            }
+            
+            .container {
+                background: #fff;
+            }
+       </style>
+        <link type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.4/themes/ui-lightness/jquery-ui.css" rel="Stylesheet" /> 
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script> 
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.4/jquery-ui.min.js"></script>
+        
+        <script type="text/javascript" src="http://github.com/malsup/corner/raw/master/jquery.corner.js?v2.11"></script> 
+        <script type="text/javascript" src="http://plugins.jquery.com/files/jquery.constantfooter.js.txt"></script>
+        <script type="text/javascript" src="http://github.com/paulirish/infinite-scroll/raw/master/jquery.infinitescroll.min.js"></script>
+        <script type="text/javascript" src="js/application1.js"></script>
+        <script type="text/javascript" src="js/jquery.form.js"></script> 
+        <script type="text/javascript" src="js/jquery.url.min.js"></script>
+        <script type="text/javascript" src="js/soundmanager/soundmanager2-nodebug-jsmin.js"></script>
+        
+        <script type="text/javascript"> 
+            $(document).ready(function() {
+            	$("#footer").constantfooter();
+         /*       $("#slider-vertical").slider({
+                    orientation: "vertical",
+                    range: "min",
+                    min: 0,
+                    max: 100,
+                    value: 60,
+                    slide: function(event, ui) {
+                       // $("#amount").val(ui.value);
+                    }
+                });
+          */     
+                $("#slider-range-min").slider({
+                    range: "min",
+                    value: 37,
+                    min: 1,
+                    max: 700,
+                    slide: function(event, ui) {
+                      //  $("#amount").val('$' + ui.value);
+                    }
+                });
+                $("#progressbar").progressbar({
+                    value: 59
+                });
+                $("#selectable").selectable({
+                    stop: function(){
+                        var result = $("#select-result").empty();
+                        $(".ui-selected", this).each(function(){
+                            var index = $("#selectable li").index(this);
+                            result.append(" #" + (index + 1));
+                        });
+                    }
+                });
+              //scrollpane parts
+                var scrollPane = $('.scroll-pane');
+                var scrollContent = $('.scroll-content');
+                
+                //build slider
+                var scrollbar = $(".scroll-bar").slider({
+                    slide:function(e, ui){
+                        if( scrollContent.width() > scrollPane.width() ){ scrollContent.css('margin-left', Math.round( ui.value / 100 * ( scrollPane.width() - scrollContent.width() )) + 'px'); }
+                        else { scrollContent.css('margin-left', 0); }
+                    }
+                });
+                
+                //append icon to handle
+                var handleHelper = scrollbar.find('.ui-slider-handle')
+                .mousedown(function(){
+                    scrollbar.width( handleHelper.width() );
+                })
+                .mouseup(function(){
+                    scrollbar.width( '100%' );
+                })
+                .append('<span class="ui-icon ui-icon-grip-dotted-vertical"></span>')
+                .wrap('<div class="ui-handle-helper-parent"></div>').parent();
+                
+                //change overflow to hidden now that slider handles the scrolling
+                scrollPane.css('overflow','hidden');
+                //size scrollbar and handle proportionally to scroll distance
+                function sizeScrollbar(){
+                    var remainder = scrollContent.width() - scrollPane.width();
+                    var proportion = remainder / scrollContent.width();
+                    var handleSize = scrollPane.width() - (proportion * scrollPane.width());
+                    scrollbar.find('.ui-slider-handle').css({
+                        width: handleSize,
+                        'margin-left': -handleSize/2
+                    });
+                    handleHelper.width('').width( scrollbar.width() - handleSize);
+                }
+                
+                //reset slider value based on scroll content position
+                function resetValue(){
+                    var remainder = scrollPane.width() - scrollContent.width();
+                    var leftVal = scrollContent.css('margin-left') == 'auto' ? 0 : parseInt(scrollContent.css('margin-left'));
+                    var percentage = Math.round(leftVal / remainder * 100);
+                    scrollbar.slider("value", percentage);
+                }
+                //if the slider is 100% and window gets larger, reveal content
+                function reflowContent(){
+                        var showing = scrollContent.width() + parseInt( scrollContent.css('margin-left') );
+                        var gap = scrollPane.width() - showing;
+                        if(gap > 0){
+                            scrollContent.css('margin-left', parseInt( scrollContent.css('margin-left') ) + gap);
+                        }
+                }
+                
+                //change handle position on window resize
+                $(window)
+                .resize(function(){
+                        resetValue();
+                        sizeScrollbar();
+                        reflowContent();
+                });
+                //init scrollbar size
+                setTimeout(sizeScrollbar,10);//safari wants a timeout
+                $("#selectable").selectable();
+                
+         });
+      </script> 
+    </head> 
+    <body>
+        <div class="container">
+            <div class="header">
+                <div class="logo"><a href= "/"><img class="logo_image" src="images/logo.png" border="0"/></a></div>
+                <div class = "search_container">
+                    <form id="myForm" action="search" method="get"> 
+                        <input id="query" name="q" type="text" size="80" />
+                        <input type="submit" value="Search Hindi Songs" class="submit_button_search" /> 
+                    </form>
+                </div><!-- search_container ends -->
+            </div><!-- header ends -->
+            <div class="results">
+                <ol id="selectable">
+                </ol>
+                <div class="paginate"></div>              
+            </div> <!-- results ends -->   
+
+            <div id="footer">
+                <div class="player">
+                    <div class="controls">
+                        <div class="previous_song"><div class="ui-state-default ui-corner-all"><span class="ui-icon ui-icon-seek-prev"></span></div></div>
+                        <div class="play_pause"><div class="ui-state-default ui-corner-all"><span class="ui-icon ui-icon-play"></span></div></div>
+                        <div class="next_song"><div class="ui-state-default ui-corner-all"><span class="ui-icon ui-icon-seek-next"></span></div></div>
+                        <div id="progressbar"></div>
+                        <div id="time"></div>
+                      <!--  <div class="volume_up"><div class="ui-state-default ui-corner-all"><span class="ui-icon ui-icon-volume-on"></span></div></div> --> 
+                        <div class="repeat"><div class="ui-state-default ui-corner-all"><span class="ui-icon ui-icon-refresh"></span></div></div>
+                        <div class="volume_low"><div class="ui-state-default ui-corner-all"><span class="ui-icon ui-icon-volume-off"></span></div></div> 
+                       <div id="slider-range-min"></div>
+                         
+                     <!-- <label for="amount">Volume:</label>
+                        <input type="text" id="amount" style="border:0; color:#f6931f; font-weight:bold;" /> -->   
+                      <!--  <div id="slider-vertical"></div> -->
+                        
+                    </div><!--controls ends-->
+                    <div class="playlist">
+                            <div class="scroll-pane ui-widget ui-widget-header ui-corner-all">
+							    <div class="scroll-content">
+							        <div class="scroll-content-item ui-widget-header">1</div>
+							        <div class="scroll-content-item ui-widget-header">2</div>
+							        <div class="scroll-content-item ui-widget-header">3</div>
+							        <div class="scroll-content-item ui-widget-header">4</div>
+							        <div class="scroll-content-item ui-widget-header">5</div>
+							    </div>
+							    <div class="scroll-bar-wrap ui-widget-content ui-corner-bottom">
+							        <div class="scroll-bar"></div>
+							    </div>
+							</div>
+                        <div class="playlist_controls"></div><!-- play list controls such as save to playlist goes here-->
+                    </div><!--playlist ends-->
+                </div><!--player ends-->
+            </div><!--footer ends-->
+        </div><!--container ends-->
+    </body> 
+</html>

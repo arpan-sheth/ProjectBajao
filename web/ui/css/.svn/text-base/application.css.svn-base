@@ -1,0 +1,131 @@
+
+.container {
+    font-family: Palatino Linotype, Book Antiqua, Palatino, serif;
+    font-size: 14px;
+
+}
+
+.result_container {
+	padding-left: 50px;
+	width:650px;
+
+}
+a {
+	color:blue;
+	text-decoration: none;	
+}
+
+body {
+	background-color:white;
+}
+
+.play_link {
+	margin-bottom:-7px;
+    margin-right:5px;
+}
+
+.facebook {
+   vertical-align:middle;
+}
+
+.twitter {
+	vertical-align:middle;
+}
+
+.hyperlink {
+    vertical-align:middle;	
+}
+
+.nextPage {
+    margin-left:100px;	
+}
+
+.prevPage {
+	float:left;
+    margin-right:20px;
+}
+
+.social {
+    margin-left:3px;
+    margin-top:6px;
+}
+
+.pagination {
+    margin-bottom: 3px;
+	padding-left:30%;
+	text-align:center;
+	width:auto;
+}
+
+.result {
+    border-bottom:1px inset #009BE3;
+    padding:5px;
+}
+
+.result:hover {
+
+}
+
+.search_container {
+	width:700px;
+	margin:-70px auto 70px;
+	text-align:left;
+	padding:15px;
+}
+
+.result_container {
+
+}
+
+.home_search_container {
+	width:555px;
+	margin:0px auto;
+	text-align:left;
+	padding-top: 25px;
+}
+
+.logo_home {
+	margin:0px auto;
+    width:200px;
+}
+
+.logo {
+
+}
+.logo_image {
+    height:100px;
+    margin-left:50px;
+    width:100px;
+}
+
+.submit_button {
+    border:1px solid black;
+    margin-left:225px;
+    margin-top:20px;
+    background:#E5E5E5;
+}
+
+.submit_button_search {
+	border:1px solid black;
+	background:#E5E5E5;
+}
+
+.text_box {
+    width: 500px;
+    margin-left:25px;
+}
+
+.header {
+	width:100%;
+	left:0;
+	margin:0;
+	padding:0;
+	position:fixed;
+	top:0;
+	z-index:2;
+	background: white;
+}
+
+.content {
+    margin-top: 170px;
+}

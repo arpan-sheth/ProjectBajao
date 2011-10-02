@@ -1,0 +1,55 @@
+10
+
+dir
+71
+https://subversion.assembla.com/svn/projectbajao/ProjectBajao/src/com
+https://subversion.assembla.com/svn/projectbajao
+
+
+
+2010-10-20T23:47:30.249466Z
+71
+arpan.sheth
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+5d16a115-0377-4ccd-aa61-c017251e005c
+
+solr
+dir
+
+crawler
+dir
+
+utility
+dir
+
+database
+dir
+
+servlets
+dir
+
+thread
+dir
+
+beans
+dir
+
+content
+dir
+
+downloader
+dir
+

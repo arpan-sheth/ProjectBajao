@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<web-app xmlns="http://java.sun.com/xml/ns/j2ee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
+    version="2.4">
+
+    <display-name>Project Bajao</display-name>
+    <description> </description>
+
+    <servlet>
+        <servlet-name>HelloServlet</servlet-name>
+        <servlet-class>testPackage.Hello</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>HelloServlet</servlet-name>
+        <url-pattern>/hello</url-pattern>
+    </servlet-mapping>
+    
+     <servlet>
+        <servlet-name>TestServlet</servlet-name>
+        <servlet-class>com.servlets.TestServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>TestServlet</servlet-name>
+        <url-pattern>/test</url-pattern>
+    </servlet-mapping>
+    
+     <servlet>
+        <servlet-name>Search</servlet-name>
+        <servlet-class>com.servlets.CallSolr</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>Search</servlet-name>
+        <url-pattern>/search</url-pattern>
+    </servlet-mapping>    
+
+     <servlet>
+        <servlet-name>Song</servlet-name>
+        <servlet-class>com.servlets.OneSong</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>Song</servlet-name>
+        <url-pattern>/song</url-pattern>
+    </servlet-mapping>    
+
+    <servlet>
+        <servlet-name>Play</servlet-name>
+        <servlet-class>com.servlets.PlaySong</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>Play</servlet-name>
+        <url-pattern>/play</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>Update</servlet-name>
+        <servlet-class>com.servlets.UpdateDB</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>Update</servlet-name>
+        <url-pattern>/udb</url-pattern>
+    </servlet-mapping>   
+ 
+    <servlet>
+        <servlet-name>Downloader</servlet-name>
+        <servlet-class>com.servlets.DownloadSong</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>Downloader</servlet-name>
+        <url-pattern>/dsong</url-pattern>
+    </servlet-mapping>   
+ 
+    <servlet>
+        <servlet-name>Inserter</servlet-name>
+        <servlet-class>com.servlets.InsertSong</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>Inserter</servlet-name>
+        <url-pattern>/insertsong</url-pattern>
+    </servlet-mapping>      
+
+    <servlet>
+        <servlet-name>SoundDownloaderThreadManagerServlet</servlet-name>
+        <servlet-class>com.servlets.SoundDownloaderThreadManagerServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>SoundDownloaderThreadManagerServlet</servlet-name>
+        <url-pattern>/SoundDownloaderThreadManagerServlet</url-pattern>
+    </servlet-mapping>      
+    
+    <servlet>
+        <servlet-name>log4j-init</servlet-name>
+        <servlet-class>com.servlets.Log4jInit</servlet-class>
+        <init-param>
+            <param-name>log4j.properties</param-name>
+            <param-value>WEB-INF/classes/log4j.properties</param-value>
+        </init-param>
+        <load-on-startup>1</load-on-startup>
+    </servlet> 
+
+</web-app> 

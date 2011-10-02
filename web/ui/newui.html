@@ -1,0 +1,208 @@
+<!doctype html> 
+<html> 
+	<head> 
+		<title>JQuery Corner Demo</title> 
+
+		<style type="text/css">
+			body {
+				background: #fff;
+				font-size: 1em; /*use ems so that you make your fonts relative to the parent fonts*/
+				min-width:940px;
+			}			
+
+		   .container {
+				width: 100%;
+			}
+
+			#top_bar {
+			 	position:fixed;
+        	 	top:0;
+        	 	left:1;
+        		z-index:1;
+				background: #fff;
+				height: 5em;
+				border: 1px solid #6a1;
+			/*	width: 99.2%; /* for top_bar right margin*/
+				margin: 0.3em;
+				width:98%;
+			}
+			
+			#query {
+				margin-left: auto;
+				margin-right: auto;
+			}
+			
+			.search_bar {
+				padding-top: 2em;
+				
+			}
+
+			.player {
+				margin:0.5em;
+				padding: 20px;
+				background: #fff;
+				height:2em;
+				border: 1px solid #6a1;
+/*				width:20em;*/
+			}
+			
+			.results {
+				margin-left:1em;
+		/*		padding-top: 2em;*/
+			}
+
+			.demo {
+				color: #6a1; text-align: center; 
+				font-family: verdana, arial, sans-serif;
+			/*	float: left;*/ 
+				width: 10em; 
+				padding: 15px 20px; 
+				margin: 0.5em auto; 
+			/*	background: #6af;*/
+				/*position:relative;*/
+				border: 1px solid #6a1;
+			}
+			p {
+				margin: -0.10em;
+			}
+			.ui-progressbar-value { 
+				background-image: url(images/pbar-ani.gif);
+			 }
+			#progressbar {
+				margin-top:-150px;
+				width: 40em;
+				height:0.5em;
+			}
+			
+			#slider-vertical {
+				margin-top:-300px;
+			}
+			
+			#feedback { 
+				font-size: 1.4em; 
+			}
+			
+			#selectable .ui-selecting { 
+				background: #FECA40; 
+			}
+			#selectable .ui-selected { 
+				background: #F39814; 
+				color: white; 
+			}
+			#selectable { 
+				list-style-type: none; 
+				margin-top: -500px; 
+				padding: 0; 
+				width: 60%; 
+			}
+			#selectable li { 
+				margin: 3px; 
+				padding: 0.4em; 
+				font-size: 1.4em; 
+				height: 18px; 
+			}
+		</style>
+		<link type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.4/themes/ui-lightness/jquery-ui.css" rel="Stylesheet" /> 
+     	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script> 
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.4/jquery-ui.min.js"></script>
+		
+		<script type="text/javascript" src="http://github.com/malsup/corner/raw/master/jquery.corner.js?v2.11"></script> 
+		<script type="text/javascript" src="http://plugins.jquery.com/files/jquery.constantfooter.js.txt"></script>
+		<script type="text/javascript"> 
+			$(document).ready(function() {
+					$('div.container').corner();
+					$('#top_bar').corner().hide().fadeTo(1000,  0.8);//animate({opacity: "0.8"}, 1200);
+					$('div.player').corner();
+					$('div.demo').corner().hide().fadeIn(1000);
+					$("#footer").constantfooter();
+					$('.search_bar').css("margin-left", ($('#top_bar').width() - $("#query").width()-$(".submit_button_search").width())/2);
+					$(window).resize(function() {
+						var changedTopBarWidth = $('#top_bar').width();
+						  $('.search_bar').css("margin-left", (changedTopBarWidth - $("#query").width()-$(".submit_button_search").width())/2);
+					});
+					
+					$("#slider-vertical").slider({
+						orientation: "vertical",
+						range: "min",
+						min: 0,
+						max: 100,
+						value: 60,
+						slide: function(event, ui) {
+							$("#amount").val(ui.value);
+						}
+					});
+					$("#amount").val($("#slider-vertical").slider("value"));
+
+					$("#progressbar").progressbar({
+						value: 59
+					});
+
+					$("#selectable").selectable({
+						stop: function(){
+							var result = $("#select-result").empty();
+							$(".ui-selected", this).each(function(){
+								var index = $("#selectable li").index(this);
+								result.append(" #" + (index + 1));
+							});
+						}
+					});
+					
+			});
+		</script> 
+	</head> 
+	<body>
+		<div class="container">
+		
+			<div id="top_bar">
+				<div class="logo"></div>				
+				<div class="search_bar">		
+					<form id="myForm" action="search" method="get"> 
+						<input id="query" name="q" type="text" size="40" /> 
+						<input type="submit" value="Search Hindi Songs" class="submit_button_search" /> 
+					</form> 
+				</div>
+				<div class="search_button"></div>
+			</div><!--top_bar ends-->
+			
+			<div class="results">
+				<div class="demo"><p>test: Test test test</p><p>test: Test test test</p><p>test: Test test test</p><p>test: Test test test</p></div>
+				<div class="demo"><p>test: Test test test</p><p>test: Test test test</p><p>test: Test test test</p><p>test: Test test test</p></div>
+				<div class="demo"><p>test: Test test test</p><p>test: Test test test</p><p>test: Test test test</p><p>test: Test test test</p></div>
+				<div class="demo"><p>test: Test test test</p><p>test: Test test test</p><p>test: Test test test</p><p>test: Test test test</p></div>
+				<div class="demo"><p>test: Test test test</p><p>test: Test test test</p><p>test: Test test test</p><p>test: Test test test</p></div>
+				<div class="demo"><p>test: Test test test</p><p>test: Test test test</p><p>test: Test test test</p><p>test: Test test test</p></div>
+				<div class="demo"><p>test: Test test test</p><p>test: Test test test</p><p>test: Test test test</p><p>test: Test test test</p></div>
+				<div class="demo"><p>test: Test test test</p><p>test: Test test test</p><p>test: Test test test</p><p>test: Test test test</p></div>
+				<div class="demo"><p>test: Test test test</p><p>test: Test test test</p><p>test: Test test test</p><p>test: Test test test</p></div>
+				<div class="demo"><p>test: Test test test</p><p>test: Test test test</p><p>test: Test test test</p><p>test: Test test test</p></div>
+				<div class="demo"><p>test: Test test test</p><p>test: Test test test</p><p>test: Test test test</p><p>test: Test test test</p></div>
+				<div class="demo"><p>test: Test test test</p><p>test: Test test test</p><p>test: Test test test</p><p>test: Test test test</p></div>
+			</div><!-- results ends -->
+			<div id="footer">
+				<div class="player">
+					<div class="artwork"></div>
+					<div class="controls">
+						<div class="previous_song"><span class="ui-icon ui-icon-seek-prev"></span></div>
+						<div class="play_pause"><span class="ui-icon ui-icon-play"></span></div>
+						<div class="next_song"><span class="ui-icon ui-icon-seek-next"></span></div>
+						<div id="progressbar"></div>
+						<div class="volume_up"><span class="ui-icon ui-icon-volume-on"></span></div>
+						<div class="volume_low"><span class="ui-icon ui-icon-volume-off"></span></div>
+						<label for="amount">Volume:</label>
+						<input type="text" id="amount" style="border:0; color:#f6931f; font-weight:bold;" />
+						<div id="slider-vertical" style="height:200px;"></div>
+					</div><!--controls ends-->
+					<div class="playlist">
+						<ol id="selectable">
+							<li class="ui-widget-content">fdasfadsfads</li>
+							<li class="ui-widget-content">fdasfadsfads</li>
+							<li class="ui-widget-content">fdasfadsfads</li>
+							<li class="ui-widget-content">fdasfadsfads</li>
+						</ol><!-- songs go here as <li></li> tags-->
+						<div class="playlist_controls"></div><!-- play list controls such as save to playlist goes here-->
+					</div><!--playlist ends-->
+				</div><!--player ends-->
+			</div><!--footer ends-->
+		</div><!--container ends-->
+	</body> 
+</html>

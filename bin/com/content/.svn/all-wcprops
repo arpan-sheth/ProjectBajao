@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/projectbajao/!svn/ver/70/ProjectBajao/src/com/content
+END
+ContentUpdater.java
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/projectbajao/!svn/ver/64/ProjectBajao/src/com/content/ContentUpdater.java
+END
+SongTagger.java
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/projectbajao/!svn/ver/55/ProjectBajao/src/com/content/SongTagger.java
+END
+SongDownloader.java
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/projectbajao/!svn/ver/64/ProjectBajao/src/com/content/SongDownloader.java
+END
+SongDownloaderThreadManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/projectbajao/!svn/ver/72/ProjectBajao/src/com/content/SongDownloaderThreadManager.java
+END
+SongDownloaderThread.java
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/projectbajao/!svn/ver/72/ProjectBajao/src/com/content/SongDownloaderThread.java
+END
+downloadObject.java
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/projectbajao/!svn/ver/67/ProjectBajao/src/com/content/downloadObject.java
+END

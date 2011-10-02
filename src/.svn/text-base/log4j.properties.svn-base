@@ -1,0 +1,13 @@
+log4j.rootLogger=INFO, R
+
+log4j.appender.R=org.apache.log4j.RollingFileAppender
+log4j.appender.R.File=/tomcat/logs/servlet.log
+
+log4j.appender.R.MaxFileSize=1024MB
+# Keep one backup file
+log4j.appender.R.MaxBackupIndex=10
+
+log4j.appender.R.layout=org.apache.log4j.PatternLayout
+log4j.appender.R.layout.ConversionPattern=%d %5p [%t] - %m%n
+
+log4j.appender.R.com.servlets.CallSolr=INFO

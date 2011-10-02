@@ -1,0 +1,34 @@
+10
+
+dir
+42
+https://subversion.assembla.com/svn/projectbajao/ProjectBajao/web
+https://subversion.assembla.com/svn/projectbajao
+
+
+
+2010-08-12T00:29:21.657967Z
+42
+arpan.sheth
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+5d16a115-0377-4ccd-aa61-c017251e005c
+
+WEB-INF
+dir
+
+ui
+dir
+

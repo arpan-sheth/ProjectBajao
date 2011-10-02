@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/projectbajao/!svn/ver/67/ProjectBajao/src/com/servlets
+END
+SoundDownloaderThreadManagerServlet.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/projectbajao/!svn/ver/67/ProjectBajao/src/com/servlets/SoundDownloaderThreadManagerServlet.java
+END
+BaseServlet.java
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/projectbajao/!svn/ver/13/ProjectBajao/src/com/servlets/BaseServlet.java
+END
+BaseServletWithDB.java
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/projectbajao/!svn/ver/15/ProjectBajao/src/com/servlets/BaseServletWithDB.java
+END
+Log4jInit.java
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/projectbajao/!svn/ver/21/ProjectBajao/src/com/servlets/Log4jInit.java
+END
+TestServlet.java
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/projectbajao/!svn/ver/10/ProjectBajao/src/com/servlets/TestServlet.java
+END
+OneSong.java
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/projectbajao/!svn/ver/21/ProjectBajao/src/com/servlets/OneSong.java
+END
+UpdateDB.java
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/projectbajao/!svn/ver/61/ProjectBajao/src/com/servlets/UpdateDB.java
+END
+CallSolr.java
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/projectbajao/!svn/ver/36/ProjectBajao/src/com/servlets/CallSolr.java
+END
+InsertSong.java
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/projectbajao/!svn/ver/55/ProjectBajao/src/com/servlets/InsertSong.java
+END
+PlaySong.java
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/projectbajao/!svn/ver/21/ProjectBajao/src/com/servlets/PlaySong.java
+END
+DownloadSong.java
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/projectbajao/!svn/ver/29/ProjectBajao/src/com/servlets/DownloadSong.java
+END

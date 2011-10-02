@@ -1,0 +1,60 @@
+<project name="ProjectBajao" default="compile" basedir="."> 
+	
+	<property file="build.properties"/> 
+    <property file="${user.home}/build.properties"/> 
+    <property name="build.home"    value="${basedir}/web"/>  
+    <property name="src.home"      value="${basedir}/src"/> 
+    <property name="web.home"      value="${basedir}/web"/>
+    <property name="war.home"      value="${basedir}/war"/>
+	<property name="wartest.name"      value="test.war"/>
+	<property name="warroot.name"      value="ROOT.war"/>
+	<property name="war.folder.name"   value="test"/>
+	<property name="tomcat.home"   value="/tomcat/webapps"/>
+	
+	<target name="all" depends="clean,compile" description="Clean build and dist directories, then compile"/>
+	
+	<target name="clean" description="Delete old build and dist directories"> 
+        <delete dir="${build.home}"/> 
+    </target>
+	
+	<target name="compile" description="Compile Java sources">
+		<!-- Compile Java classes as necessary --> 
+        <delete dir="${build.home}/WEB-INF/classes"/> 
+		<mkdir dir="${build.home}/WEB-INF/classes" />
+        <copy  todir="${web.home}/WEB-INF/classes"> 
+            <fileset file="${src.home}/log4j.properties" />
+        </copy>
+		<javac  verbose = "false" srcdir="${src.home}" destdir="${build.home}/WEB-INF/classes">
+	    	<classpath>
+		    	<fileset dir="web/WEB-INF/lib">
+		    		<include name="**/*.jar"/>
+		    	</fileset>
+	    	</classpath>
+	    </javac> 
+	</target>
+	
+    <target name="wartest" depends="compile">
+    	<delete file = "${war.home}/${wartest.name}"/>
+    	<war destfile="${war.home}/${wartest.name}" webxml="${build.home}/WEB-INF/web.xml" basedir="${web.home}/ui">
+            <fileset dir="${web.home}/ui"/>
+            <lib dir="${web.home}/WEB-INF/lib" />
+            <classes dir="${web.home}/WEB-INF/classes" />
+        </war>
+    </target>
+    <target name="warroot" depends="compile">
+        <delete file = "${war.home}/${warroot.name}"/>
+        <war destfile="${war.home}/${warroot.name}" webxml="${build.home}/WEB-INF/web.xml" basedir="${web.home}/ui">
+            <fileset dir="${web.home}/ui"/>
+            <lib dir="${web.home}/WEB-INF/lib" />
+            <classes dir="${web.home}/WEB-INF/classes" />
+        </war>
+    </target>
+    <target name="warroottest" depends="warroot, wartest">
+    </target>
+	<target name="deploytest" depends="compile, wartest">
+		<delete dir="${tomcat.home}/${war.folder.name}*"/>
+	    <copy  todir="${tomcat.home}"> 
+	          <fileset file="${war.home}/${war.name}" />
+	    </copy> 
+	</target>
+</project> 

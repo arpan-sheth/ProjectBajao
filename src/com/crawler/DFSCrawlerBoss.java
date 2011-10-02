@@ -1,0 +1,73 @@
+package com.crawler;
+
+import com.downloader.GenericHTTPClient;
+import com.utility.Utility;
+
+public class DFSCrawlerBoss {
+
+	private static DFSCrawlerDataSource dfsCDS = null;
+
+	public void startCrawl(String input_url) {
+		//input validation
+		DFSCrawlerDataSource.setInput_url_connection(Utility.urlValidate(input_url));
+		String strURL = input_url;
+
+		dfsCDS.pushStackToSearch(strURL);
+//		dfsCDS.pushStackToSearch("http://www.apunkabollywood.net/browser/category/?letter=1");
+//		dfsCDS.pushStackToSearch("http://www.apunkabollywood.net/browser/category/?letter=A");
+//		dfsCDS.pushStackToSearch("http://www.apunkabollywood.net/browser/category/?letter=B");
+//		dfsCDS.pushStackToSearch("http://www.apunkabollywood.net/browser/category/?letter=C");
+//		dfsCDS.pushStackToSearch("http://www.apunkabollywood.net/browser/category/?letter=D");
+//		dfsCDS.pushStackToSearch("http://www.apunkabollywood.net/browser/category/?letter=E");
+//		dfsCDS.pushStackToSearch("http://www.apunkabollywood.net/browser/category/?letter=F");
+//		dfsCDS.pushStackToSearch("http://www.apunkabollywood.net/browser/category/?letter=G");
+//		dfsCDS.pushStackToSearch("http://www.apunkabollywood.net/browser/category/?letter=H");
+//		dfsCDS.pushStackToSearch("http://www.apunkabollywood.net/browser/category/?letter=I");
+//		dfsCDS.pushStackToSearch("http://www.apunkabollywood.net/browser/category/?letter=J");
+//		dfsCDS.pushStackToSearch("http://www.apunkabollywood.net/browser/category/?letter=K");
+//		dfsCDS.pushStackToSearch("http://www.apunkabollywood.net/browser/category/?letter=L");
+//		dfsCDS.pushStackToSearch("http://www.apunkabollywood.net/browser/category/?letter=M");
+//		dfsCDS.pushStackToSearch("http://www.apunkabollywood.net/browser/category/?letter=N");
+//		dfsCDS.pushStackToSearch("http://www.apunkabollywood.net/browser/category/?letter=O");
+//		dfsCDS.pushStackToSearch("http://www.apunkabollywood.net/browser/category/?letter=P");
+//		dfsCDS.pushStackToSearch("http://www.apunkabollywood.net/browser/category/?letter=Q");
+//		dfsCDS.pushStackToSearch("http://www.apunkabollywood.net/browser/category/?letter=R");
+//		dfsCDS.pushStackToSearch("http://www.apunkabollywood.net/browser/category/?letter=S");
+//		dfsCDS.pushStackToSearch("http://www.apunkabollywood.net/browser/category/?letter=T");
+//		dfsCDS.pushStackToSearch("http://www.apunkabollywood.net/browser/category/?letter=U");
+//		dfsCDS.pushStackToSearch("http://www.apunkabollywood.net/browser/category/?letter=V");
+//		dfsCDS.pushStackToSearch("http://www.apunkabollywood.net/browser/category/?letter=W");
+//		dfsCDS.pushStackToSearch("http://www.apunkabollywood.net/browser/category/?letter=X");
+//		dfsCDS.pushStackToSearch("http://www.apunkabollywood.net/browser/category/?letter=Y");
+//		dfsCDS.pushStackToSearch("http://www.apunkabollywood.net/browser/category/?letter=Z");
+
+//		dfsCDS.pushStackToSearch("http://www.funmaza.com/indian_movie_songs.html");
+//		dfsCDS.pushStackToSearch("http://www.funmaza.com/pakistani_pop_songs.html");
+//		dfsCDS.pushStackToSearch("http://www.funmaza.com/indian_pop_songs.html");
+//		dfsCDS.pushStackToSearch("http://www.funmaza.com/top_chart_singles.html");
+	}
+
+	public static void main(String args[]){
+		DFSCrawlerBoss boss = new DFSCrawlerBoss();
+ 		System.out.println("Initialising DFSCrawlerDataSource");
+		dfsCDS = DFSCrawlerDataSource.getInstance();
+		System.out.println("Populating with seedList");
+//		boss.startCrawl("http://www.apunkabollywood.net/");
+		boss.startCrawl("http://www.desifunda.net/");
+		System.out.println("Starting a worker thread");
+		for (int i=0; i<50; i++){
+			DFSCrawlerParsingThreadWorker worker = new DFSCrawlerParsingThreadWorker();
+			worker.start();			
+		}
+
+	//	System.out.println(GenericHTTPClient.getResponse("http://www.funmaza.com/topcharts.asp?topchartsid=62"));
+//		while (true) {
+//			if (dfsCDS.getStackToSearchSize() > 10) {
+//				DFSCrawlerParsingThreadWorker worker_2 = new DFSCrawlerParsingThreadWorker();
+//				worker_2.start();
+//			}
+//				
+//		}
+		//DFSCrawlerDataSource.destroy();	
+	}
+}

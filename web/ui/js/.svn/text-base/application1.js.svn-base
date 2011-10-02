@@ -1,0 +1,89 @@
+var prev_query="";
+var page_number=0;
+var NUMBER_OF_RESULTS_ON_PAGE = 10;
+var global_playlist=new Array();
+var curr_playing_song = -1;
+var curr_volume = 100;
+var play_link;
+
+$(document).ready(function() {
+	$("#query").focus();
+	// bind 'myForm' and provide a simple callback function 
+	$('#myForm').ajaxForm({
+		dataType: 'json', 
+		success: processJson 
+	});
+});
+
+//function to create the result div
+function createResultDiv(i, doc){
+	var id = doc.id;
+	var song_id = doc.id;
+	var image = doc.image;
+	var title = doc.title1;
+	var media_location = doc.location;
+	var artist = doc.artist;
+	var album = doc.album;
+	var year = doc.year;
+	
+	//generating output now
+	var output='<li class="ui-state-default">'
+	output += '<div  id="result_'+ id +'"class="result">'; 
+	output += '<div id="art_'+ id +'" class="art"><img src="images/album.png" /></div>';
+	output += '<div class="data">';
+	output += '<div class="title">'+title+'</div>';
+	output += '<div class="album">Album: '+album+'</div>';
+	output += '<div class="artist">Artist(s): '+artist+'</div>';
+    output += '<div class="year">Year: '+ year+'</div>';
+    output += '</div>';
+	output += '</div>';
+	output += '</li>';
+	return output;	
+}
+
+//function to process the json received from backend
+function processJson(data) {
+	if (data.response.numFound == 0 ){
+		$('ol').append('<li class="ui-state-default"><div class="result" style="font-size:25px">No Results for your query, try fuzzy search (by adding a ~) or wildcard search (by adding a * )at the end</div></li>');
+		return;
+	}
+	$('ol').empty();
+	curr_query = data.responseHeader.params.q;
+	curr_query = curr_query.replace(/ /g,"+").replace(/\++/g,"+");
+	//looping over all the response data from json
+	$.each(data.response.docs, function(i,doc){
+		$('ol').append(createResultDiv(i, doc));//create the result divs now
+	})
+	prev_query = curr_query;
+	paginate(data);
+}
+
+//create more results link
+function paginate(data){
+	var total_found = data.response.numFound;
+	var start_row_this_click = data.response.start;
+	var remaining = total_found - start_row_this_click- NUMBER_OF_RESULTS_ON_PAGE ;
+	if (total_found<=NUMBER_OF_RESULTS_ON_PAGE){
+		return;
+	}else{
+		$('.previous').remove();
+		$('.next').remove();
+		alert
+		if (data.response.start>0){
+			$('.paginate').append('<button class="previous">Previous</button>');
+			$('.previous').unbind().click(function(event){
+				$.getJSON('search?q='+data.responseHeader.params.q+'&start='+(data.response.start-NUMBER_OF_RESULTS_ON_PAGE), function(newData){
+					processJson(newData);
+				}); 
+			});
+		}
+		if (data.response.numFound-data.response.start>NUMBER_OF_RESULTS_ON_PAGE){
+			$('.paginate').append('<button class="next">Next</button>');
+			$('.next').unbind().click(function(event){
+				$.getJSON('search?q='+data.responseHeader.params.q+'&start='+(data.response.start+NUMBER_OF_RESULTS_ON_PAGE), function(newData){
+					processJson(newData);
+				}); 
+			});	
+		}
+	}
+}
