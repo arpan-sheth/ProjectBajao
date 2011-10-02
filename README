@@ -1,0 +1,2 @@
+ProjectBajao is the codebase for bajega.com. It was an experimental website that did a focussed crwaling to get mp3s from the web and index it inside the solr/lucene based search index. There is a build script that builds and deploys the code to /tomcat folder. If you plan to use it, specifically crawler, be respectful and polite to the other website's resources.
+
